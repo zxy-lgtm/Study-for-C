@@ -26,10 +26,25 @@ struct list (*IniList(struct list *L)){
     return L;
 }
 
-struct list2 (*IniList(struct list2 *L2)){
-    L2 = (struct list2*)malloc(sizeof(struct list2));
-    L2->next = NULL;
-    return L2;
+struct list2 (*IniList()){
+    List *head;
+    head = (struct list2*)malloc(sizeof(struct list2));
+    head->next = NULL;
+
+    while(1){
+        List *pnew;
+        pnew = (List*)malloc(sizeof(List));
+        printf("请输入学生的成绩：");
+        scanf("%d",&pnew->elem);
+
+        if(pnew->elem < 0){
+            break;
+        }
+        pnew->next = NULL;
+        head->next = pnew;
+
+    }
+    return head;
 }
 
 
